@@ -21,6 +21,7 @@ public class KeyctlRetrieve {
 			p.destroy();
 			
 			System.out.println("Key Value: " + keyValue);
+			while(true) {}
 
 		} catch (Exception e) {
 			e.printStackTrace();
