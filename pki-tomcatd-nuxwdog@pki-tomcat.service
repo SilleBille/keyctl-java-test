@@ -1,0 +1,23 @@
+
+[Unit]
+PartOf=pki-tomcatd-nuxwdog.target
+
+[Service]
+Type=simple
+#StandardInput=tty
+#EnvironmentFile=/usr/share/pki/etc/tomcat.conf
+#EnvironmentFile=/etc/tomcat/tomcat.conf
+#Environment="NAME=%i"
+#Environment="STARTED_BY_SYSTEMD=1"
+#EnvironmentFile=-/etc/sysconfig/%i
+#ExecStartPre=/usr/sbin/pki-server migrate --instance %i
+#ExecStartPre=/usr/bin/pkidaemon start %i
+ExecStartPre=/usr/bin/java -cp /home/dmoluguw/eclipse-workspace/keyctl-java-test/bin/ KeyctlJavaTest
+ExecStart=/usr/bin/java -cp /home/dmoluguw/eclipse-workspace/keyctl-java-test/bin/ KeyctlRetrieve
+#ExecStop=/usr/libexec/tomcat/server stop
+#SuccessExitStatus=143
+#User=pkiuser
+#Group=pkiuser
+KeyringMode=shared
+#Restart=on-failure
+# RestartPreventExitStatus=143
