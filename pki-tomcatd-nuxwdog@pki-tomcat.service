@@ -14,8 +14,11 @@ ExecStartPre=/usr/bin/python3 /home/dmoluguw/PycharmProjects/keyctl-test-python/
 ExecStartPost=+/usr/bin/setfacl -x u:pkiuser /run/systemd/ask-password
 
 ExecStart=/usr/bin/java -cp /home/dmoluguw/eclipse-workspace/keyctl-java-test/bin/ KeyctlRetrieve
+
+ExecStop=/usr/bin/java -cp /home/dmoluguw/eclipse-workspace/keyctl-java-test/bin KeyctlClearTest
+
 User=pkiuser
 Group=pkiuser
 KeyringMode=shared
-#Restart=on-failure
+Restart=on-failure
 # RestartPreventExitStatus=143
